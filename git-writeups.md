@@ -6,7 +6,7 @@ A commit in a git repository records a snapshot of all the (tracked) files in yo
 
 # **Level intro1**
 
-!img→git1(C:\Users\acer\Downloads\git-writeups\git1)
+![git1](./git1.png)
 
 Hint: Just type in “git commit” twice to finish
 
@@ -27,7 +27,7 @@ Branches in Git are incredibly lightweight as well. They are simply pointers to 
 
 hint: Make a new branch with “git branch” and check it out with “git checkout”
 
-img→ git2
+![git2](./git2.png)
 
 Commands used:
 
@@ -44,6 +44,9 @@ In Git, branches allow you to develop features, fix bugs, or experiment in isola
 ### **Level intro3**
 
 hint: Remember to commit in the order specified (bugFix before main)
+
+![git3](./git3.png)
+
 
 Commands:
 
@@ -68,6 +71,8 @@ Git rebase is a command that allows you to integrate changes from one branch int
 # **Level intro4**
 
 hint: make sure you commit from bugFix first
+
+![git4](./git4.png)
 
 Commands:
 
