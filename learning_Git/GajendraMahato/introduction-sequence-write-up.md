@@ -1,6 +1,4 @@
-# Introduction Sequence: Write-up
-
-## Introduction Sequence: Write-up by [Gajendra Mahato](https://gajendramahato.com.np)
+# Introduction Sequence
 
 ### Level 1: Commits in Git
 
@@ -8,7 +6,7 @@
 
 **Task:** Just type in `git commit` twice to finish!
 
-* **Creating a Commit:**&#x20;
+* **Creating a Commit:**
 
 ```bash
 git commit
