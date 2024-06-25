@@ -53,3 +53,24 @@ To complete this level, move HEAD, main, and bugFix to their goal destinations s
 
 **Solution:**<br>
 ![alt text](./images/relativerefoutput.png)
+
+
+# 4. Reversing Changes in Git
+
+There are two primary ways to undo changes in Git: one is using ```git reset``` and the other is using ```git revert```.<br>
+
+**```git reset```** reverses changes by moving a branch reference backwards in time to an older commit. In this sense you can think of it as "rewriting history;" **git reset will move a branch backwards as if the commit had never been made in the first place.** 
+
+While resetting works great for local branches on your own machine, its method of "rewriting history" doesn't work for remote branches that others are using.
+<br>
+
+In order to reverse changes and share those reversed changes with others, we need to use git revert.
+
+A new commit will be added to introduce the changes that took place. The new commit introduces commit that exactly reverses the older commit.
+
+**With reverting, you can push out your changes to share with others**.
+
+To complete this level, reverse the most recent commit on both local and pushed. You will revert two commits total (one per branch).
+![alt text](./images/reversecommit.png)
+
+**Solution:** ![alt text](./images/codegitreverse.png)
