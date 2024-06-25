@@ -121,6 +121,7 @@ git checkout bugFix^
 - Optional
 - Specifies number of parents you wish to ascend
 
+
 ```bash
 git checkout HEAD~4
 ```
@@ -168,3 +169,6 @@ git reset local^
 git checkout pushed
 git revert pushed
 ```
+=======
+-
+
