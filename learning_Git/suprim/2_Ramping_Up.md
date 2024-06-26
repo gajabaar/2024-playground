@@ -1,4 +1,4 @@
-# Introduction Sequence
+# Ramping Up
 In this document, we will explore more features of Git such as handling branches, references, and reversing changes in Git. Each section will include commands and explanations for what each command does.
 
 ## 1: Detach yo' HEAD 
