@@ -1,4 +1,4 @@
-# Introduction Sequence
+# Moving Work Around
 
 In this document, we will explore more features of Git such as cherry-picking and interactive rebase. Each section will include commands and explanations for what each command does.
 
