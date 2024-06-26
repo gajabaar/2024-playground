@@ -169,6 +169,45 @@ git reset local^
 git checkout pushed
 git revert pushed
 ```
-=======
--
 
+## Cherry-pick
+
+- Copy a series of commits below the current location
+
+```bash
+git cherry-pick commit1 commit2 ...
+```
+
+This copies the work done in commit1 and commit2 and brings it below the current working branch
+
+- Useful when we know which commits we want and their corresponding hashes
+
+To solve this level:
+
+```bash
+git cherry-pick C3 C4 C7
+```
+
+## Interactive Rebase
+
+- using git rebase with -i option
+- Git will open an interactive window/UI to show which commit messages are to be rebased below the target of the rebase
+
+```bash
+git rebase -i HEAD~4
+```
+
+To solve this level:
+
+```bash
+git rebase -i HEAD~4
+```
+
+## Grabbing just 1 commit
+
+To solve this level:
+
+```bash
+git checkout main
+git cherry-pick C4
+```
