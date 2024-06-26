@@ -149,3 +149,153 @@ we can do that by git checkout C4
 
 
 ---
+
+Relative Refs
+
+Git logs -> To find the commit hashes
+		Need to specify enough character in hash until it uniquely identify the commit
+		To identify fed2da64c0efc5293610bdd892f82a58e8cbc5d8
+		we can just type fed2 instead of long string abole
+
+With relative refs, you can start somewhere memorable (like the branch `bugFix` or `HEAD`) and work from there.
+
+Relative commits are powerful, but we will introduce two simple ones here:
+
+- Moving upwards one commit at a time with `^`
+- Moving upwards a number of times with `~<num>`
+
+
+To complete this level we can use commands
+
+git checkout bugFix^
+
+^ to go to above head
+if we want to go above it then we can use git checkout bugFix^ ; git checkout bugFix^;git checkout bugFix^;git checkout bugFix^;
+
+
+## Relative Refs 2
+
+The "~" operator
+
+Say you want to move a lot of levels up in the commit tree. It might be tedious to type `^` several times, so Git also has the tilde (~) operator.
+
+The tilde operator (optionally) takes in a trailing number that specifies the number of parents you would like to ascend. Let's see it in action.
+
+ git checkout bugFix^ ; git checkout bugFix^; git checkout bugFix^; git checkout bugFix^;
+
+EQUIVALENT to 
+
+git checkout HEAD~4
+
+One of the most common ways I use relative refs is to move branches around. You can directly reassign a branch to a commit with the `-f` option. So something like:
+
+`git branch -f main HEAD~3`
+
+moves (by force) the main branch to three parents behind HEAD.
+
+_Note: In a real git environment `git branch -f command` is not allowed for your current branch._
+
+`git branch -f main HEAD~3`  -> moves to 3 way above head
+-f to forcibly move the head or another parts
+
+
+SOLUTION: 
+git checkout head~1 for head to transfer head on C1
+git branch -f main C6
+git branch -f bugFix C0
+
+
+
+
+---
+
+## Reversing Changes in Git
+
+Two ways to reverse change in Git
+- git reset
+- git revert
+
+
+## Git Reset
+
+`git reset` reverses changes by moving a branch reference backwards in time to an older commit. In this sense you can think of it as "rewriting history;" `git reset` will move a branch backwards as if the commit had never been made in the first place.
+
+## Git Revert
+
+While resetting works great for local branches on your own machine, its method of "rewriting history" doesn't work for remote branches that others are using.
+
+In order to reverse changes and _share_ those reversed changes with others, we need to use `git revert`.
+
+To complete level:
+
+Git checkout pushed
+git revert head
+git checkout local
+git reset HEAD~1
+
+
+---
+
+# Moving work around
+
+Level 1 -> Cherry Pick Intro
+
+Cherry Pick
+`git cherry-pick`.
+
+- `git cherry-pick <Commit1> <Commit2> <...>`
+
+it is used to pick copy certain commit into main. If we select commits and added into main then we can get it plopped down into our main.
+
+To complete this level
+We use command 
+
+git cherry-pick C3 C4 C7 to copy all commits into main
+
+
+
+---
+
+Level 2 ->  Interactive rebase intro
+
+Git cherry-pick is great when you know which commits you want (and you know their corresponding hashes) -- it's hard to beat the simplicity it provides.
+
+But what about the situation where you don't know what commits you want? Thankfully git has you covered there as well! We can use interactive rebasing for this -- it's the best way to review a series of commits you're about to rebase.
+
+Interactive rebase
+All interactive rebase means Git is using the `rebase` command with the `-i` option.
+
+If you include this option, git will open up a UI to show you which commits are about to be copied below the target of the rebase. It also shows their commit hashes and messages, which is great for getting a bearing on what's what.
+
+When the interactive rebase dialog opens, you have the ability to do two things in our educational application:
+
+You can reorder commits simply by changing their order in the UI (via dragging and dropping with the mouse).
+You can choose to keep all commits or drop specific ones. When the dialog opens, each commit is set to be included by the pick button next to it being active. To drop a commit, toggle off its pick button.
+
+
+To complete this level 
+git rebase -i C1
+drop C2 while arranging all other commit on order.
+
+
+---
+
+# A mixed Bag
+
+Level 1 -> Grabbing just one commit
+
+What if we want to copy one of our commit to our main. Grabbing only one commit is the way to solve this problem 
+
+To solve this problem
+we can use 
+-git cherry-pick
+-git rebase -i 
+
+To solve this level 
+git switch main
+git cherry-pick C4
+
+boom** solved
+
+
+---
