@@ -16,3 +16,17 @@ git commit
 ```
 git checkout -b bugFix
 ```
+### Level3-Merging in git
+**Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main the with git merge command merge bugFix branch in to the main 
+![Branching in Git](./images/Merge.png)
+
+**Solution**
+```
+git checkout -b bugFix
+git commit
+git checkout main
+git commit
+git merge bugFix
+
+```
+
