@@ -54,6 +54,9 @@ To complete this level, move HEAD, main, and bugFix to their goal destinations s
 **Solution:**<br>
 ![alt text](./images/relativerefoutput.png)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1409cb28f4dee989e2f8a84df402523c4d4fd9d0
 
 
 # 4. Reversing Changes in Git
@@ -74,6 +77,10 @@ A new commit will be added to introduce the changes that took place. The new com
 To complete this level, reverse the most recent commit on both local and pushed. You will revert two commits total (one per branch).
 ![alt text](./images/reversecommit.png)
 
+<<<<<<< HEAD
 **Solution:** ![alt text](./images/codegitreverse.png)
 =======
 >>>>>>> 9a2c1eb (day1)
+=======
+**Solution:** ![alt text](./images/codegitreverse.png)
+>>>>>>> 1409cb28f4dee989e2f8a84df402523c4d4fd9d0
