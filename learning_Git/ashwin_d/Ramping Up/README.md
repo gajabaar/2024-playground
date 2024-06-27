@@ -73,20 +73,4 @@ A new commit will be added to introduce the changes that took place. The new com
 To complete this level, reverse the most recent commit on both local and pushed. You will revert two commits total (one per branch).
 ![alt text](./images/reversecommit.png)
 
-**Solution:** ![alt text](./images/codegitreverse.png)# 1. Detach yo head
-Includes moving around in git. <br>
-First we have to talk about "HEAD". HEAD is the symbolic name for the currently checked out commit -- **it's essentially what commit you're working on top of.**<br>
-HEAD always points to the most recent commit which is reflected in the working tree. Most git commands which make changes to the working tree will start by changing HEAD.
-Head points to a branch. When you commit change is visible.
-<br>
-
-**Detaching HEAD**
-Detaching HEAD just means attaching it to a commit instead of a branch. This is what it looks like beforehand:
-
-```HEAD -> main -> C1```
-```git checkout C1```
-And now it's
-```HEAD -> C1```<br>
-
-To complete this level, let's detach HEAD from bugFix and attach it to the commit instead.
-![alt text](./images/gitHead.png)
+**Solution:** ![alt text](./images/codegitreverse.png)
