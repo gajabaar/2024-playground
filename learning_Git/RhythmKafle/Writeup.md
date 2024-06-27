@@ -121,6 +121,7 @@ git checkout bugFix^
 - Optional
 - Specifies number of parents you wish to ascend
 
+
 ```bash
 git checkout HEAD~4
 ```
@@ -256,3 +257,4 @@ git checkout v1
 - Output: tag_stepsAway_hash
 
 Just git commit after playing for a while
+
