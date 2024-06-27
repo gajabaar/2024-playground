@@ -53,4 +53,14 @@ git rebase main
 git checkout c4
 
 ```
+### Level2-Detaching Head using Relative Ref(^)
+**Goal-** Checkout to parent commit of bugFix using relative refs
+![detaching head using refs in Git](./images/detachRef.png)
+
+**Solution**
+```
+git checkout bugFix^
+
+```
+
 
