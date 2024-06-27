@@ -120,4 +120,94 @@ git checkout bugFix^
 
 - Optional
 - Specifies number of parents you wish to ascend
--
+
+
+```bash
+git checkout HEAD~4
+```
+
+- You can directly reassign a branch to a commit with the `-f` option.
+
+```bash
+git branch -f main HEAD~3
+```
+
+- Commands to solve this level:
+
+```bash
+git branch -f bugFix HEAD~2
+git branch -f main C6
+git checkout HEAD^
+```
+
+## Reversing Changes in Git
+
+- Two primary ways to do this: `git reset` and `git revert`
+
+### Git Reset:
+
+- Moves the commit back to a previous commit
+- Similar to “Rewriting history”
+
+```bash
+git reset HEAD~1
+```
+
+### Git Revert
+
+- Reverse changes and *share* those reversed changes with others
+- With reverting, you can push out your changes to share with others.
+
+```bash
+git revert HEAD
+```
+
+To solve this level:
+
+```bash
+git reset local^
+git checkout pushed
+git revert pushed
+```
+
+## Cherry-pick
+
+- Copy a series of commits below the current location
+
+```bash
+git cherry-pick commit1 commit2 ...
+```
+
+This copies the work done in commit1 and commit2 and brings it below the current working branch
+
+- Useful when we know which commits we want and their corresponding hashes
+
+To solve this level:
+
+```bash
+git cherry-pick C3 C4 C7
+```
+
+## Interactive Rebase
+
+- using git rebase with -i option
+- Git will open an interactive window/UI to show which commit messages are to be rebased below the target of the rebase
+
+```bash
+git rebase -i HEAD~4
+```
+
+To solve this level:
+
+```bash
+git rebase -i HEAD~4
+```
+
+## Grabbing just 1 commit
+
+To solve this level:
+
+```bash
+git checkout main
+git cherry-pick C4
+```

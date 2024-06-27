@@ -64,6 +64,7 @@ The second way to combine work between branches is rebasing. Rebasing copies com
 
 - Solve
 
+
 ![Untitled](learninggitbranching%20js%20org%20lab%20Writeup%203bfa01ecd12a4cd2be2264988ab50b25/Untitled%206.png)
 
 # Ramping Up
@@ -246,3 +247,4 @@ Git tags act as anchors in the codebase, and `git describe` helps you identify y
 - Solve
 
 ![Untitled](learninggitbranching%20js%20org%20lab%20Writeup%203bfa01ecd12a4cd2be2264988ab50b25/Untitled%2028.png)
+

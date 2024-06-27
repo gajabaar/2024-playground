@@ -74,4 +74,47 @@ $ git rebase main
 
 ## 1. Detach yo’ Head
 
--
+- HEAD is the symbolic name for the currently checked out commit -- it's essentially what commit you're working on top of.
+- HEAD always points to the most recent commit which is reflected in the working tree.
+- To solve,
+
+![alt text](Git%20and%20GitHub%20WriteUps%20images/image.png)
+- Solution
+```
+$ git checkout c4
+```
+
+## 2. Relative Refs (^)
+- Hashes are usually a lot longer in the real Git world as well.
+    - Moving upwards one commit at a time with `^`
+    - Moving upwards a number of times with `~<num>`
+- So saying `main^` is equivalent to "the first parent of `main`".
+- `main^^` is the grandparent (second-generation ancestor) of `main`
+- To solve
+![alt text](Git%20and%20GitHub%20WriteUps%20images/4.png)
+- Solution
+```
+$ git checkout C4^
+```
+## 3. Relative Refs (~)
+- The tilde operator (optionally) takes in a trailing number that specifies the number of parents you would like to ascend.
+- To solve,
+![alt text](Git%20and%20GitHub%20WriteUps%20images/5.png)
+- Solution
+```
+$ git checkout HEAD~1
+$ git branch -f main C6
+$ git branch -f bugFix C0
+```
+
+## 4. Relative Refs (~)
+- `git reset` reverses changes by moving a branch reference backwards in time to an older commit.
+- In order to reverse changes and *share* those reversed changes with others, we need to use `git revert`.
+- To solve,
+![alt text](Git%20and%20GitHub%20WriteUps%20images/6.png)
+- Solution
+```
+$ git branch -f local C1
+$ git checkout pushed
+$ git revert pushed
+```
