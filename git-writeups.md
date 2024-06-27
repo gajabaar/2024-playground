@@ -150,3 +150,46 @@ git reset local~1
 git checkout pushed
 
 git revert pushed
+
+
+
+# **Moving Work Around**
+
+### 1: Cherry-pick Intro
+
+Git cherry-pick is a command used to copy a specific commit from one branch and apply it onto another branch.
+
+## level move1
+
+hint: git cherry-pick followed by commit names
+
+![git9](./git9.png)
+
+Command:
+
+git cherry-pick c3 c4 c7
+
+
+
+## Interactive Rebase Intro
+
+Git interactive rebase is a powerful tool that allows you to change the commit history of your branch before you push your changes to a remote repository.
+
+## level move2
+
+hint: you can use either branches or relative refs(HEAD~) to specify the rebase target
+
+![git10](./git10.png)
+
+Command:
+
+git rebase -i HEAD~5
+
+
+In the interactive rebase:
+
+- C1
+- omit C2
+- C3
+- C5
+- C4
