@@ -228,3 +228,38 @@ git cherry-pick C3 C4 C7
 ```
 git rebase -i HEAD~4
 ```
+
+
+## A Mixed Bag
+# Level 1 : Grabbing Just 1 Commit
+- The only problem is to get ```bugFix``` into ```main``` to get all debug statements into main.
+
+### Goal to reach
+![local_stacked_commits](md_git_images/Stacked_commit.png)
+**Commands to be used:**<br>
+```git rebase -i```<br>
+```git cherry-pick```
+
+### To solve this level
+```
+git checkout main
+git cherry-pick c4
+```
+
+# Level 2 : Juggling Commits
+**Problem:**<br>
+- You have some changes (newImage) and another set of changes (caption) that are related, so they are stacked on top of each other in your repository (aka one after another).
+- to change the dimensions of newImage slightly, even though that commit is way back in our history.
+
+## Goal to reach
+![modification_commit](md_git_images/jugggling_commit.png)
+
+### To solve this lab
+```
+$ git checkout caption
+$ git rebase -i HEAD~2
+$ git commit --amend
+$ git rebase -i HEAD~2
+$ git checkout main
+$ git merge caption
+```
