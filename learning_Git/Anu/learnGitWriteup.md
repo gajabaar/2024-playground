@@ -96,4 +96,14 @@ git cherry-pick c3 c4 c7
 ```
 
 
+### Level2- Interactive Rebase
+**Goal-** do an interactive rebase and achieve following order
+![interactive rebase](./images/interactive.png)
+
+**Solution**
+```
+git rebase -i HEAD_4
+
+```
+![solution](./images/solution.png)
 
