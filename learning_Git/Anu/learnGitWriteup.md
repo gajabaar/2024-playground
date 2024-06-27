@@ -74,7 +74,7 @@ git branch -f main c6
 git checkout HEAD^
 
 ```
-### Level3-Reversing changes in git
+### Level4-Reversing changes in git
 **Goal-** Reverse the most recent commit in both local branch and pushed branch ,pushed is remote branch 
 ![detaching head using refs in Git](./images/reversing.png)
 
@@ -83,6 +83,16 @@ git checkout HEAD^
 git reset HEAD^
 git checkout pushed
 git revert HEAD
+```
+##Moving Work Around
+### Level1- Cherry-pick intro
+**Goal-** Simply copy some work from three branches as shown in images below
+![cherry pick](./images/cherry-pick.png)
+
+**Solution**
+```
+git cherry-pick c3 c4 c7
+
 ```
 
 
