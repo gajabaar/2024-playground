@@ -121,7 +121,6 @@ git checkout bugFix^
 - Optional
 - Specifies number of parents you wish to ascend
 
-
 ```bash
 git checkout HEAD~4
 ```
@@ -211,3 +210,49 @@ To solve this level:
 git checkout main
 git cherry-pick C4
 ```
+
+## Juggling Commit
+
+To solve this level:
+
+```bash
+git rebase -i caption~2
+-> pick C3
+-> pick C2
+git --amend
+git rebase -i caption~2
+-> pick C2''
+-> pick C3'
+git branch -f main caption
+```
+
+## Juggling Commit - 2
+
+To solve this level:
+
+```bash
+git checkout main
+git cherry-pick C2
+git commit --amend
+git cherry-pick C3
+```
+
+## Git tags
+
+- permanently marks certain commits as milestones that we can then refer like a branch
+
+To solve this level:
+
+```bash
+git tag v0 c1
+git tag v1 c2
+git checkout v1
+```
+
+## Git Describe
+
+- Describes where we are closest to the “anchor”(tag)
+- Syntax: git describe
+- Output: tag_stepsAway_hash
+
+Just git commit after playing for a while
