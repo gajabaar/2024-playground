@@ -18,7 +18,7 @@ git checkout -b bugFix
 ```
 ### Level3-Merging in git
 **Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main then with git merge command merge bugFix branch in to the main 
-![Branching in Git](./images/Merge.png)
+![Merging in git](./images/Merge.png)
 
 **Solution**
 ```
@@ -31,7 +31,7 @@ git merge bugFix
 ```
 ### Level4-Rebase
 **Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main.Again switch to bugFix and with git rebase command rebase main branch
-![Branching in Git](./images/Rebase.png)
+![rebasing in Git](./images/Rebase.png)
 
 **Solution**
 ```
@@ -41,6 +41,16 @@ git checkout main
 git commit
 git checkout bugFix
 git rebase main
+
+```
+# Ramping up
+### Level1-Datach Head
+**Goal-** Detach head from bugFix and attach it to commit instead
+![detaching head in Git](./images/detach.png)
+
+**Solution**
+```
+git checkout c4
 
 ```
 
