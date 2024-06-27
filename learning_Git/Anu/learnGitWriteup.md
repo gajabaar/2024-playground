@@ -17,7 +17,7 @@ git commit
 git checkout -b bugFix
 ```
 ### Level3-Merging in git
-**Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main the with git merge command merge bugFix branch in to the main 
+**Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main then with git merge command merge bugFix branch in to the main 
 ![Branching in Git](./images/Merge.png)
 
 **Solution**
@@ -27,6 +27,20 @@ git commit
 git checkout main
 git commit
 git merge bugFix
+
+```
+### Level4-Rebase
+**Goal-** Make new branch named bugFix and switch it to that branch,commit once there then switch back to main,again commit once in main.Again switch to bugFix and with git rebase command rebase main branch
+![Branching in Git](./images/Rebase.png)
+
+**Solution**
+```
+git checkout -b bugFix
+git commit
+git checkout main
+git commit
+git checkout bugFix
+git rebase main
 
 ```
 
