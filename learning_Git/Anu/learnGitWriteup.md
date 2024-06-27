@@ -7,7 +7,7 @@
 ```
 git commit
 git commit
-
+```
 ### Level2-Branching in git
 **Goal-** Make new branch named bugFix and switch it to that branch 
 ![Branching in Git](./images/Branching.png)
@@ -15,3 +15,4 @@ git commit
 **Solution**
 ```
 git checkout -b bugFix
+```
