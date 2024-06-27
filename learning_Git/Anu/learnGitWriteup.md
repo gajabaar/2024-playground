@@ -64,7 +64,7 @@ git checkout bugFix^
 ```
 ### Level3-Detaching Head using Relative Re
 f(~)
-**Goal-** Move HEAD ,main,ugFix to destination position as shown in the images below
+**Goal-** Move HEAD ,main, bugFix to destination position as shown in the images below
 ![detaching head using refs in Git](./images/detachRef2.png)
 
 **Solution**
