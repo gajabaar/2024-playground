@@ -299,3 +299,21 @@ boom** solved
 
 
 ---
+
+Level 2 -> Juggling Commits
+
+To solve this level
+
+	git rebase -i main  [switch order bet'n C2 and C3]
+	git commit --amend
+	git rebase -i main
+	git switch main
+	git merge caption
+Level completed.
+
+
+
+
+
+---
+
