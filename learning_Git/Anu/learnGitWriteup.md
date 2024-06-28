@@ -106,4 +106,3 @@ git rebase -i HEAD_4
 
 ```
 ![solution](./images/solution.png)
-
