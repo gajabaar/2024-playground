@@ -48,7 +48,7 @@ The commands are:
 ## LEVEL 4: GIT TAGS
 Git tags (somewhat) permanently mark certain commits as "milestones" that can then be referenced like a branch. More importantly though, they never move as more commits are created. <br />
 To create a tag:<br />
-'git tag v1 C1'<br />
+`git tag v1 C1`<br />
 The commands for solving this level are:
 ```sh
     git tag v0 C1
