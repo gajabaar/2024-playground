@@ -17,7 +17,7 @@ The command is :
 When the interactive rebase dialog opens, 
     - You can reorder commits simply by changing their order in the UI (via dragging and dropping with the mouse).
     - You can choose to keep all commits or drop specific ones. When the dialog opens, each commit is set to be included by the `pick` button next to it being active. To drop a commit, toggle off its `pick` button.
-    'git rebase -i HEAD~number'<br />
+    `git rebase -i HEAD~number`<br />
 The command is :
 ```sh
     git rebase -i HEAD~4

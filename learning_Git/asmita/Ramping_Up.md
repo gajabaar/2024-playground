@@ -39,9 +39,10 @@ The commands I used the first time to solve are
 ## LEVEL 4 : Reversing Changes in Git
 There are two primary ways to undo changes in Git -- one is using `git reset` and the other is using `git revert`.<br />
 To complete this level, reverse the most recent commit on both `local` and `pushed`. You will revert two commits total (one per branch).<br />
-    'git reset' works as in the commit never happened.
+    `git reset` works as in the commit never happened.
     `git reset HEAD~1
-    git revert HEAD`<br />
+    git revert HEAD`
+    <br />
 The commands are :
 ```sh
     git reset HEAD~1
