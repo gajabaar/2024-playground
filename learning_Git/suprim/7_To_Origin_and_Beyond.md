@@ -1,4 +1,4 @@
-# To Origin and Beyong -- Advanced Git Remotes
+# To Origin and Beyond -- Advanced Git Remotes
 
 ## 1: Push Main!
 ```
