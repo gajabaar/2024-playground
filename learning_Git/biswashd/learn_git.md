@@ -263,3 +263,140 @@ $ git rebase -i HEAD~2
 $ git checkout main
 $ git merge caption
 ```
+
+# Level 3 :Juggling Commits #2
+
+- In the last level, we used `rebase -i` to reorder the commits.
+- Once the commit we wanted to change was on **Top**, we could easily `--amend` it and re-order back to our preferred order.
+- only issue here is that there is a lot of reordering going on, which can introduce rebase conflicts. 
+
+## Another method with cherry-pick
+- git cherry-pick will plop down a commit from anywhere in the tree onto HEAD.
+
+### Goal to reach
+1. accomplish the same objective of amending C2 once but avoid using rebase -i.
+![juggling2_commit](md_git_images/jugglingcommit#2.png)
+
+### To solve this level
+```
+git checkout main
+
+$ git cherry-pick C2
+
+$ git commit --amend
+
+$ git cherry-pick C3
+```
+
+# Level 4 :Git Tags
+- Branches are easily mutated, often temporary, and always changing.
+- Tags never move as more commits are created. You can't "check out" a tag and then complete work on that tag -- tags exist as anchors in the commit tree that designate certain spots.
+
+### Goal to reach 
+1. For this level just create the tags in the goal visualization and then check v1 out. Notice how you go into detached HEAD state -- this is because you can't commit directly onto the v1 tag.
+
+![juggling2_commit](md_git_images/git_tag.png)
+
+### To solve this lab
+
+```
+git tag v0 C1
+git tag v1 C2
+git checkout HEAD~1
+ ```
+
+
+# Level 5 : Git Describe
+Because tags serve as such great "anchors" in the codebase, git has a command to describe where you are relative to the closest "anchor" (aka tag). And that command is called git describe!
+Git describe can help you get your bearings after you've moved many commits backwards or forwards in history; this can happen after you've completed a git bisect (a debugging search) or when sitting down at the computer of a coworker who just got back from vacation.
+Git describe takes the form of:
+`git describe <ref>`
+Where `<ref>` is anything git can resolve into a commit. If you don't specify a ref, git just uses where you're checked out right now (HEAD).
+
+The output of the command looks like:
+`<tag>_<numCommits>_g<hash>`
+Where tag is the closest ancestor tag in history, numCommits is how many commits away that tag is, and `<hash>` is the hash of the commit being described.
+
+## Goal to reach
+
+![Git_describe](md_git_images/git_describe.png)
+
+### To solve this level
+```
+git commit
+```
+
+### **Advanced topic**
+
+## Level 1 : Rebasing over 9000 times
+
+## problem
+- to rebase all work from branches onto main
+- the commits wants all to be in sequential order
+
+### Goal to reach
+![Git_describe](md_git_images/git_describe.png)
+
+### To solve this level
+```
+git rebase main bugFix
+
+$ git rebase bugFix side
+
+$ git rebase side another
+
+$ git rebase another main
+```
+**OR**
+```
+git checkout bugFix
+git rebase main
+git checkout side
+git rebase -i bugFix
+git checkout another
+git rebase side
+git checkout main
+git merge another
+```
+### refer : https://denizsivas.medium.com/learn-git-branching-interactively-9c43d3e26556
+
+
+## Level 2 : Multiple Parents
+1. Like the `~` modifier, the `^` modifier also accepts an optional number after it.
+2. Rather than specifying the number of generations to go back (what `~`takes), the modifier on `^` specifies which parent reference to follow from a merge commit.
+3. Remember that merge commits have multiple parents, so the path to choose is ambiguous.
+4. Git will normally follow the "first" parent upwards from a merge commit, but specifying a number with `^`
+
+### Goal to reach 
+![Git_modifiers](md_git_images/modifiers.png)
+
+### To solve this level
+1. To complete this level, create a new branch at the specified destination by using modifiers `^` & `~`
+
+```
+git branch bugWork HEAD~^2~
+```
+
+## Level 3 : Branch Spaghetti
+1. Here we have `main` that is a few commits ahead of branches `one` `two` and `three`. For whatever reason, we need to update these three other branches with modified versions of the last few commits on main.
+2. Branch one needs a re-ordering of those commits and an exclusion/drop of C5. Branch two just needs a pure reordering of the commits, and three only needs one commit transferred!.
+
+### Goal to Reach 
+
+![Git_modifiers](md_git_images/modifiers.png)
+
+
+### To solve this level
+```
+git rebase C2 three
+
+Fast forwarding...
+
+$ git checkout one
+
+$ git cherry-pick C4 C3 C2
+
+$ git checkout two
+
+$ git cherry-pick C5 C4 C3 C2
+```
