@@ -104,6 +104,3 @@ $ git merge o/main
 ```
 
 ## Level 6: Git Pushin'
-
-
-
