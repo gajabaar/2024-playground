@@ -256,3 +256,25 @@ git checkout v1
 - Output: tag_stepsAway_hash
 
 Just git commit after playing for a while
+
+
+## Rebasing over 9000 times
+
+To solve this level:
+
+```bash
+git rebase main bugFix
+git rebase bugFix side
+git rebase side another
+git rebase another main
+```
+
+## Multiple parents
+
+To solve this level:
+
+```bash
+git branch bugWork main^^2^
+```
+
+## Branch Spaghetti
