@@ -299,3 +299,276 @@ $ git cherry-pick C4 C3 C2
 $ git checkout two
 $ git cherry-pick C5 C4 C3 C2
 ```
+
+# Remote
+
+## Push and Pull — Git Remotes!
+
+### 1. Clone Intro
+
+- `git clone` in the real world is the command you'll use to create *local* copies of remote repositories
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2019.png)
+
+- Solution
+
+```bash
+$ git clone
+```
+
+## 2. Remote Branches
+
+- The first thing you may have noticed is that a new branch appeared in our local repository called `o/main`. This type of branch is called remote branch
+- Remote branches have the special property that when you check them out, you are put into detached `HEAD` mode.
+- if you look at a branch named `o/main`, the branch name is `main` and the name of the remote is `o`.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2020.png)
+
+- Solution
+
+```bash
+$ git commit
+$ git checkout o/main
+$ git commit
+```
+
+## 3. Git Fetch
+
+- `git fetch` performs two main steps, and two main steps only. It:
+    - downloads the commits that the remote has but are missing from our local repository, and...
+    - updates where our remote branches point (for instance, `o/main`)
+- `git fetch` essentially brings our *local* representation of the remote repository into synchronization with what the *actual* remote repository looks like (right now).
+- `git fetch`, however, does not change anything about *your* local state. It will not update your `main` branch or change anything about how your file system looks right now.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2021.png)
+
+- Solution
+
+```bash
+$ git fetch
+```
+
+## 4. Git Pullin’
+
+- `git pull` is equivalent to the two command `git fetch` and `git merge`
+- For e.g: `git fetch` and `git merge o/main` is equivalent to `git pull`
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2022.png)
+
+- Solution, can be solved by `git fetch` and `git merge o/main` or,
+
+```bash
+$ git pull
+```
+
+## 5. Faking Teamwork
+
+- pull down changes that were introduced in the remote.
+- That means we need to essentially "pretend" that the remote was updated by one of your coworkers / friends / collaborators, sometimes on a specific branch or a certain number of commits. That can be done using the command `git fakeTeamwork`
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2023.png)
+
+- Solution
+
+```bash
+$ git clone
+$ git fakeTeamwork
+$ git fakeTeamwork
+$ git commit
+$ git pull
+```
+
+## 6. Git pushing
+
+- the way to upload shared work is the opposite of downloading shared work. And what's the opposite of `git pull`? `git push`!
+- `git push` is responsible for uploading *your* changes to a specified remote and updating that remote to incorporate your new commits.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2024.png)
+
+- Solution
+
+```bash
+$ git commit
+$ git commit
+$ git push
+```
+
+## 7. Diverged History
+
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2025.png)
+
+- Solution
+
+```bash
+$ git clone
+$ git fakeTeamwork
+$ git commit
+$ git pull --rebase
+$ git push
+```
+
+## 8. Locked Main
+
+- The remote rejected the push of commits directly to main because of the policy on main requiring pull requests to instead be used.
+    
+    You meant to follow the process creating a branch then pushing that branch and doing a pull request, but you forgot and committed directly to main. Now you are stuck and cannot push your changes.
+    
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2026.png)
+
+- Solution
+
+```bash
+$ git reset --hard o/main
+$ git checkout -b feature C2
+$ git push origin feature
+```
+
+# **To Origin And Beyond -- Advanced Git Remotes!**
+
+## 1. Push Main!
+
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2027.png)
+
+- Soultion
+
+```bash
+$ git fetch
+$ git rebase o/main side1
+$ git rebase side1 side2
+$ git rebase side2 side3
+$ git checkout main
+$ git merge side3
+$ git push
+```
+
+## 2. Merging with Remotes
+
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2028.png)
+
+- Soution
+
+```bash
+$ git fetch
+$ git checkout o/main
+$ git merge side1
+$ git merge side2
+$ git merge side3
+$ git checkout main
+$ git merge C11
+$ git push
+```
+
+## 3. Remote Tracking
+
+- In this level, we learn about how to make main unchange in remote where we will be using `git checkout -b foo o/main` by which the main remains unchange and work is done in foo branch.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2029.png)
+
+- Solution
+
+```bash
+$ git checkout -b side o/main
+$ git commit 
+$ git fetch
+$ git rebase o/main side
+$ git push
+```
+
+## 4. Git Push Arguments
+
+- `git push <remote> <place>` For e.g. `git push origin main`
+- By specifying `main` as the "place" argument, we told git where the commits will *come from* and where the commits *will go*. It's essentially the "place" or "location" to synchronize between the two repositories.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2030.png)
+
+- Solution
+
+```bash
+$ git push origin main
+$ git push origin foo
+```
+
+## 5. Git push arguments -- Expanded!
+
+- If we want the source and destination to be different to do so, we simple join two place separated by the semi-colon `git push origin <source>:<destination>`. If branch is absent it creates new one
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2031.png)
+
+- Solution
+
+```bash
+$ git push origin foo^:foo
+$ git push origin foo^2:main
+$ git push origin foo:main
+$ git push origin main^:foo
+```
+
+## 6. Fetch Arguments
+
+- So similar to `push` argument can be `fetch` as well? `fetch` argument is similar to the `push` argument.
+- It is the same type of concept but applied in the opposite direction
+- The `<place>` parameter will go to the branch, grab all the commits and then plop them down to the `o/<place>` branch locally.
+- The `<souce>:<destination>` is also true.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2032.png)
+
+- Solution
+
+```bash
+$ git fetch origin C3:foo
+$ git fetch origin C6:main
+$ git checkout foo
+$ git merge main
+```
+
+## 7. Source of Nothing
+
+- Git abuses the `<source>` parameter in two weird ways. These two abuses come from the fact that you can technically specify "nothing" as a valid `source` for both git push and git fetch.
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2033.png)
+
+- Solution,
+
+```bash
+$ git push origin :foo
+$ git fetch origin :bar
+```
+
+## 8. Pull Arguments
+
+- To solve,
+
+![Untitled](Git%20and%20GitHub%20WriteUps%20images/Untitled%2034.png)
+
+- Solution
+
+```bash
+$ git fetch origin C3:foo
+$ git merge foo
+$ git fetch origin C2:side
+$ git merge side
+
+OR,
+
+$ git pull origin C3:foo
+$ git pull origin C2:side
+```
