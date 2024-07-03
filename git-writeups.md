@@ -193,3 +193,171 @@ In the interactive rebase:
 - C3
 - C5
 - C4
+
+
+# **A Mixed Bag**
+
+### 1: Grabbing Just 1 Commit
+
+## level mixed1
+
+hint: Remember, interactive rebase or cherry-pick is your friend here
+
+![git11](./git11.png)
+
+Commands:
+
+git checkout main
+
+git cherry-pick c4
+
+
+
+### 2: Juggling Commits
+
+## level mixed2
+
+hint: The first command is git rebase -i HEAD~2
+
+![git12](./git12.png)
+
+Commands:
+
+git rebase -i HEAD~2
+
+![git13](./git13.png)
+
+git commit —amend
+
+git rebase -i HEAD~2
+
+![git14](./git14.png)
+
+git branch -f main caption
+
+
+### 3: Juggling Commits #2
+
+## level mixed3
+
+hint: Don’t forget to forward main to the updated changes!
+
+![git15](./git15.png)
+
+Commands:
+
+git checkout main
+
+git cherry-pick c2
+
+git commit —amend
+
+git cherry-pick c3
+
+
+### 4: Git Tags
+
+## level mixed4
+
+hint: you can either check out the commit directly or simply checkout the tag
+
+![git16](./git16.png)
+
+Commands:
+
+git tag v0 c1
+
+git tag v1 c2
+
+git checkout v1
+
+
+
+### 5: Git Describe
+
+## level mixed5
+
+hint: Just commit once on bugFix when you’re ready to move on
+
+![git17](./git17.png)
+
+Command:
+
+git commit -m bugFix
+
+
+
+
+# **Advanced Topics**
+
+### 1: Rebasing over 9000 times
+
+## level advanced1
+
+hint: Remember, the only efficient way might be to only update main at the end. . .
+
+![git18](./git18.png)
+
+## In 7 commands
+
+git checkout bugFix
+
+git rebase main
+
+git checkout side
+
+git rebase bugFix
+
+git checkout another
+
+git rebase side
+
+git branch -f main
+
+
+
+## In 4 commands
+
+git rebase main bugFix
+
+git rebase bugFix side
+
+git rebase side another
+
+git rebase main side
+
+
+
+### 2: Multiple parents
+
+## level advanced2
+
+hint: use ‘git branch bugWork’ with a target commit to create a missing reference.
+
+![git19](./git19.png)
+
+Command:
+
+git branch bugWork HEAD~^2~
+
+
+
+### 2: Multiple parents
+
+## level advanced3
+
+Make sure to do everything in proper order! Branch one first, then two, then three
+
+![git19](./git19.png)
+
+Commands:
+
+git checkout one
+
+git cherry-pick c4 c3 c2
+
+git checkout one
+
+git cherry-pick c5 c4 c3 c2
+
+git branch -f three c2
