@@ -120,3 +120,87 @@ For this level, try to get to the end goal state shown in the visualization, and
 - push the main branch with source foo branch
 ```git push origin foo:main```
 
+# 6. Git fetch arguments
+
+The arguments for git fetch are actually very, very similar to those for git push. **It's the same type of concepts but just applied in the opposite direction.**
+</br>
+<h3>
+The place parameter </h3>
+
+If you specify a place with git fetch like in the following command
+
+```git fetch origin foo```
+
+Git will go to the foo branch on the remote, grab all the commits that aren't present locally, and then plop them down onto the o/foo branch _**not foo branch**_ locally. <br>
+It doesn't plops commits on foo branch because it makes exception for us to work on the things that are already on foo branch
+
+However we can directly plop commits on destination branch using ```<source>:<destination>```<br>
+``<source>`` is now a place on the remote and ``<destination>`` is a local place to put those commits. **(opposite of git push)**. <br>
+Even if the destination doesn't exists before we run the command it will create the destination and plop the commits on the destination branch. 
+<br>
+
+>If git fetch receives no arguments, it just downloads all the commits from the remote onto all the remote branches.
+
+**Problem:**<br>
+To finish this level, fetch just the specified commits in the goal visualization. Get fancy with those commands:
+>You will have to specify the source and destination for both fetch commands. Pay attention to the goal visualization since the IDs may be switched around!
+
+![alt text](./images/fetchargprob.png)
+
+
+**Solution:**<br>
+- fetch the commits (upto c3) on main branch to foo branch using ```git fetch origin c3:foo```
+- fetch the commits on foo branch to main branch using ```git fetch origin c6:main```
+- checkout to foo branch 
+- merge to the main branch
+
+
+# 7. Source of nothing<h3>
+**Oddities of ```<source>``` :**</h3><br>
+We can specify ```nothing``` as valid source for both ```git push``` and ```git fetch```:
+- ```git push origin :side```
+- ```git fetch origin :bugFix```
+<br>
+<br>
+
+**Problem:**<br>
+This is a quick level, just delete one remote branch and create a new branch with git fetch to finish:
+
+![alt text](./images/sourceofnothingprob.png)
+
+**Solution:**<br>
+- push the foo branch with nothing source to delete branch from remote. 
+```git push origin :foo```
+- fetch a new branch with nothing source to create on local. ```git fetch origin :bar   ```
+
+# 8. Git pull arguments
+Here are some equivalent commands in git:
+
+- ```git pull origin foo``` is equal to:
+
+- ```git fetch origin foo; git merge o/foo```
+
+And...
+
+- ```git pull origin bar:bugFix``` is equal to:
+
+- ```git fetch origin bar:bugFix; git merge bugFix```
+
+git pull is really just shorthand for _**fetch + merge**_, and all git pull cares about is where the commits ended up (the destination argument that it figures out during fetch).
+
+![alt text](./images/gitpullargdemo.png)
+
+![alt text](./images/gitpullargdemo1.png)
+
+
+**Problem:**<br>
+Attain the state of the goal visualization. 
+> You'll need to download some commits, make some new branches, and merge those branches into other branches, but it shouldn't take many commands 
+
+![alt text](./images/gitpullargprob.png)
+
+**Solution:**<br>
+- pull the specific commit c3 using ```git pull origin c3:foo``` c3 will be commited to branch foo and merged with currently checked out branch i.e. main
+- pull commit c2 using ```git pull origin c2:side``` and this completes level
+
+
