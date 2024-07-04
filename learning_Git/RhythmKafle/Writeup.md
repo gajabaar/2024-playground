@@ -278,3 +278,119 @@ git branch bugWork main^^2^
 ```
 
 ## Branch Spaghetti
+To solve this level:
+
+```bash
+git checkout one
+git cherry-pick c4 c3 c2
+git checkout two 
+git cherry-pick c5 c4' c3' c2'
+git branch -f three c2
+```
+
+## Git Remotes
+
+To create remotes:
+
+```bash
+git clone 
+```
+
+To solve this level:
+
+```bash
+git clone
+```
+
+## Remote branches
+
+o/main is a remote branch
+
+o = remote name, main = branch name
+
+To solve this level:
+
+```bash
+git commit
+git checkout o/main
+git commit
+```
+
+## Git fetching
+
+fetches data from a remote repository
+
+git fetch does the following:
+
+- downloads the commits the remote has but are missing in our local repo
+- updates where our remote branches point
+
+To solve this level:
+
+```bash
+git fetch
+```
+
+## Git pullin’
+
+fetches remote and merges them
+
+To solve this level
+
+```bash
+git pull
+```
+
+## Faking Teamwork
+
+To solve this level:
+
+```bash
+git fakeTeamwork main 2
+git commit
+git pull
+```
+
+## Git Pushin’
+
+Upload shared work
+
+To solve this level:
+
+```bash
+git commit
+git commit
+git push
+```
+
+## Diverged History
+
+When the main branch has commits that your branch does not, git push does not work
+
+In this case: 
+
+1. git fetch → git rebase → git push
+2. git fetch → git merge → git push
+3. git pull —rebase → git push
+4. git pull → git push
+
+To solve this level:
+
+```bash
+git clone
+git fakeTeamwork main 1
+git commit
+git fetch
+git rebase o/main
+git push
+```
+
+## Locked Main
+
+To solve this level:
+
+```bash
+git checkout -b feature
+git branch -f main o/main
+git push
+```
