@@ -104,3 +104,75 @@ $ git merge o/main
 ```
 
 ## Level 6: Git Pushin'
+- git push is responsible for uploading your changes to a specified remote and updating that remote to   incorporate your new commits.
+- after push remote branch and main branch should be at same place
+### To solve this level
+To finish this level, simply share two new commits with the remote.
+```
+$ git commit
+
+$ git commit
+
+$ git push
+```
+
+## Level 7: Diverged History
+- when the remote branch is already ahead of your local branch we cannot push the changes to it, or it doesn't allow because the changes would be ambigious.
+![Git_diverged_history](md_git_images/diverge1.png)
+- When we `git push` nothing will happen because the command fails. `git push` fails because your most recent commit `C3` is based off of the remote at `C1`. The remote has since been updated to `C2` though, so git rejects your push.
+- **How do you resolve this situation?** It's easy, all you need to do is base your work off of the most recent version of the remote branch.
+- There are a few ways to do this, but the most straightforward is to move your work via rebasing.
+- rebase before pushing.
+
+```
+git rebase o/main
+git push
+```
+
+## another solution ig `merge`
+- we fetch first like in previous method.
+- merge the changes to remote branch
+- push the changes
+```
+git fetch
+git merge o/main
+git push
+```
+- another way is, `git pull` is just shorthand for a **fetch** and a **merge**. Conveniently enough, `git pull --rebase` is shorthand for a fetch and a rebase!.
+
+# In order to solve this level, take the following steps:
+- Clone your repo
+- Fake some teamwork (1 commit)
+- Commit some work yourself (1 commit)
+- Publish your work via rebasing
+```
+$ git clone
+
+$ git fakeTeamwork
+
+$ git commit
+
+$ git pull --rebase
+
+$ git push
+```
+
+
+## Level 8:  Locked Main
+- If you work on a large collaborative team it's likely that main is locked and requires some Pull Request process to merge changes. If you commit directly to main locally and try pushing you will be greeted with a message similar to this:
+
+`! [remote rejected] main -> main (TF402455: Pushes to this branch are not permitted; you must use a pull request to update this branch.)`
+
+# Why was it rejected ?
+- the policy is to require pull requests instead of directly pushing commits to main - **cause of error:** somehow you did push directly on main without creating a branch and sending a pull request
+
+## The solution
+- Create another branch called feature and push that to the remote. Also reset your main back to be in sync with the remote otherwise you may have issues next time you do a pull and someone else's commit conflicts with yours.
+
+![Git_Locked main](md_git_images/locaked1.png)
+
+```
+git reset HEAD~1
+git checkout -b feature C2
+git push
+```
