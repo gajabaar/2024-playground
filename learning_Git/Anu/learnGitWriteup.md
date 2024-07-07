@@ -195,7 +195,7 @@ git branch f bugWork HEAD~^2~
 ```
 
 ### level3
-**Goal-** Use modifiers^
+**Goal-** Branch Spaghetti
 ![grabbing one commit](./images/ad3.png)
 
 **Solution**
