@@ -48,37 +48,4 @@ git fetch
 git merge o/main
 
 ```
-### Level6 Git push
-**Goal-** push two commits to the remote repository from the local repo
-![Introduction to git commit](./images/remote6.png)
-**Solution**
-```
-git commit
-git commit
-git push
-
-```
-### Level7 Diverged Work
-**Goal-** Clone your repository,fake some teamwork,commit in local repository and then publish your work via rebasing
-![Introduction to git commit](./images/remote7.png)
-**Solution**
-```
-git clone 
-git fakeTeamwork
-git commit
-git pull --rebase
-git push
-
-```
-### Level8 Remote Rejected
-**Goal-** Create another branch called feature and push that to the remote Also reset your main back to be in sync with the remote
-![Introduction to git commit](./images/remote8.png)
-**Solution**
-```
-git reset --hard o/main
-git checkout -b feature c2
-git push origin feature
-
-```
-
 
