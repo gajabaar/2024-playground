@@ -81,4 +81,95 @@ git push origin feature
 
 ```
 
+## Advanced Git Remotes
+### Level1 Push main
+**Goal-** Push three feature branch to the remote repo in order
+![Introduction to git commit](./images/remote9.png)
+**Solution**
+```
+git fetch
+git rebase o/main side1
+git rebase side1 side2
+git rebase side2 side3
+git rebase side3 main
+git push
+
+```
+### Level2 Merging with remotes
+**Goal-** Complete level1 using merge command
+![Introduction to git commit](./images/remote10.png)
+**Solution**
+```
+git fetch
+git checkout o/main
+git merge side1
+git merge side2
+git merge side3
+git branch -f main HEAD
+git checkout main
+git push
+
+```
+### Level3 Remote tracking
+**Goal-** Push some work on to the main in remote branch without actually checking out on main locally 
+![Introduction to git commit](./images/remote11.png)
+**Solution**
+```
+git checkout -b side o/main
+git commit
+git fetch
+git rebase o/main
+git push
+
+```
+### Level4 Git Push arguments
+**Goal-** Update both foo and main on the remote where git checkout command is disabled in this level
+![Introduction to git commit](./images/remote12.png)
+**Solution**
+```
+git push origin foo
+git push origin main
+
+```
+### Level5 Git Push arguments expanded level
+**Goal-** Pushing onto the remote branch with mentioning source and destination
+![Introduction to git commit](./images/remote13.png)
+**Solution**
+```
+git push origin foo:main
+git push origin main^:foo
+
+```
+### Level6 Git Fetch Arguements
+**Goal-** Fetch specified commits from the remote to local
+![Introduction to git commit](./images/remote14.png)
+**Solution**
+```
+git fetch origin c6:main
+git fetch origin c3:foo
+git checkout foo
+git merge main
+
+```
+
+
+### Level7 Source of nothing
+**Goal-** Delete one remote branch and create a new branch with git fetch
+![Introduction to git commit](./images/remote15.png)
+**Solution**
+```
+git push origin :foo
+git fetch origin :bar
+
+```
+### Level8 Pull arguments
+**Goal-** Fetch some commits from the remote ,make some new branches and merge those branches into other branches but it shouldn't take many branches
+![Introduction to git commit](./images/remote16.png)
+**Solution**
+```
+git pull origin c3:foo
+git pull origin c2:side
+
+```
+
 
