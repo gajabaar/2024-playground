@@ -1,6 +1,6 @@
 # 2024-Playground Project
 
-Welcome to the `2024-Playground` repository! This document will guide you through the setup process and understanding the contribution guidelines, which is essential for participating in this project.
+Welcome to the `2024-Playground` repository! This document will guide you through the setup process and understanding the contribution guidelines, which are essential for participating in this project.
 
 ## Steps for Contributing
 
@@ -12,10 +12,15 @@ Welcome to the `2024-Playground` repository! This document will guide you throug
 * [Organizing Your Work](./#organizing-your-work)
 * [Adding Changes](./#adding-changes)
 * [Opening a Pull Request on GitHub](./#opening-a-pull-request-on-github)
+* [Understanding Git History](./#understanding-git-history)
+* [What to Do While Your Pull Request is Pending Review](./#what-to-do-while-your-pull-request-is-pending-review)
+  * [Continue Working on the Same Branch](./#approach-1-continue-working-on-the-same-branch)
+  * [Create a New Branch for Continued Work](./#approach-2-create-a-new-branch-for-continued-work)
+    * [Basic Commands for Branch Management](./#basic-commands-for-branch-management)
 
 ### Setting Up SSH Keys
 
-Setting up SSH keys allows you to securely connect to GitHub without needing to enter your username and password every time you interact with your repository from the command line.
+Setting up SSH keys allows you to securely connect to GitHub without needing to enter your username and password every time you interact with your repository from the command line. For more details, refer to the [GitHub guide on SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 #### **Generating a New SSH Key**
 
@@ -25,7 +30,7 @@ Setting up SSH keys allows you to securely connect to GitHub without needing to 
     ssh-keygen -t rsa -b 4096 -C "sudogajendra@gmail.com"
     ```
 
-    This creates a new SSH key, using the provided email as a label.
+    This creates a new SSH key, using the provided email as a label. [See more](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 2.  When prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
 
     ```bash
@@ -43,7 +48,7 @@ Setting up SSH keys allows you to securely connect to GitHub without needing to 
     ```bash
     eval "$(ssh-agent -s)"
     ```
-2.  Add your SSH private key to the ssh-agent.
+2.  Add your SSH private key to the ssh-agent. [GitHub guide about it](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-your-ssh-key-to-the-ssh-agent).
 
     ```bash
     ssh-add ~/.ssh/id_rsa
@@ -82,6 +87,8 @@ After inserting all the details, click 'Add SSH key' button. If it prompted for 
 
 <figure><img src=".files_for_readme/images/Adding the SSH Key to Your GitHub Account 5.png" alt=""><figcaption></figcaption></figure>
 
+For more detailed steps, refer to the [GitHub guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+
 ### Setting Up Your Own Copy of the Repository
 
 1.  **Fork the repo on GitHub to your personal account.** Click the `Fork` button on the `gajabaar/2024-playground` Public page. (This needs to be done only once.)
@@ -94,9 +101,11 @@ After inserting all the details, click 'Add SSH key' button. If it prompted for 
 
     <figure><img src=".files_for_readme/images/Setting Up Your Own Copy of the Repository 2.png" alt=""><figcaption></figcaption></figure>
 
-    Now, we have the SSH URL of our forked repository, we can use it to clone our forked repo onto our local machine using the command `git clone <repo URL>`.
+    Now, with the SSH URL of your forked repository, you can use it to clone your forked repo onto your local machine using the command `git clone <repo URL>`.
 
     <figure><img src=".files_for_readme/images/Setting Up Your Own Copy of the Repository 3.png" alt=""><figcaption></figcaption></figure>
+
+    For more details, see the [GitHub guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-fork).
 
 ### Organizing your Work
 
@@ -181,5 +190,101 @@ Example structure:
        <figure><img src=".files_for_readme/images/Opening a Pull Request on GitHub 2.png" alt=""><figcaption></figcaption></figure>
 5. **Review and Feedback**:
    * Once your pull request is open, the repository's maintainers will review it. They will check the changes and decide whether to merge them into the main branch. If they find any issues or have suggestions, they will provide feedback. Be ready to make additional changes if requested.
+
+### Understanding Git History
+
+To understand your Git history and key terms:
+
+* **origin**: Your forked remote repository.
+* **upstream**: The original repository you forked from.
+
+To view a clear, graphical representation of your branches and commits, use:
+
+```bash
+git log --oneline --decorate --graph --all
+```
+
+For more detailed information, refer to the [Git documentation](https://git-scm.com/docs/git-log).
+
+### Managing Work During a Pending Pull Request
+
+When your pull request is under review, you have two common strategies for managing ongoing work:
+
+#### **Approach 1: Continue Working on the Same Branch**
+
+1. **Keep Working on Your Branch**:
+   * Continue making changes and improvements on your existing branch while awaiting review.
+2.  **After Your Pull Request is Accepted**:
+
+    1.  Ensure your local `main` branch is up-to-date:
+
+        ```bash
+        git checkout main
+        git pull origin main
+        ```
+
+        <figure><img src=".gitbook/assets/Continue Working on the Same Branch 0.png" alt=""><figcaption></figcaption></figure>
+    2.  Rebase your branch on `main` to incorporate any new changes:
+
+        ```bash
+        git checkout your_branch_name
+        git rebase main
+        ```
+
+        <figure><img src=".gitbook/assets/Continue Working on the Same Branch 1.png" alt=""><figcaption></figcaption></figure>
+    3.  Push your changes to update your pull request:
+
+        ```bash
+        git push origin your_branch_name
+        ```
+
+    This approach maintains a single separate branch for ongoing work, ensuring all changes are synchronized before finalizing the pull request.
+
+#### **Approach 2: Create a New Branch for Continued Work**
+
+1. **Create a New Branch**:
+   *   If you prefer a cleaner history in your pull request, leave the branch you used to open the pull request (`Gajendra/writeup`) as it is and create a new branch such as `Gajendra/writeup_v1.2` for further modifications:
+
+       ```bash
+       git checkout -b Gajendra/writeup_v1.2
+       ```
+2.  **Once the Pull Request is Accepted**:
+
+    1.  Sync your `main` branch to include the latest modifications and updates:
+
+        ```bash
+        git checkout main
+        git pull origin main
+        ```
+    2.  Rebase your new branch on `main` to incorporate the latest changes:
+
+        ```bash
+        git checkout Gajendra/writeup_v1.2
+        git rebase main
+        ```
+    3.  Push the changes to update your new branch:
+
+        ```bash
+        git push origin Gajendra/writeup_v1.2
+        ```
+
+    This approach requires maintaining multiple branches for ongoing work, ensuring all changes are synchronized, and maintaining a cleaner history in your pull request. So, here is some important command to maintaining branches
+
+#### **Basic Commands for Branch Management**:
+
+*   **Delete a Branch**: To delete a branch once it's merged and no longer needed:
+
+    ```bash
+    git branch -d Gajendra/writeup
+    ```
+
+    This command deletes the local branch `Gajendra/writeup`. Use `-D` instead of `-d` to force delete a branch that hasn't been merged.
+*   **Move/Rename a Branch**: To rename the current branch you're on:
+
+    ```bash
+    git branch -m Gajendra/writeup_v1.2 Gajendra/writeup_v1.3
+    ```
+
+    This command renames the current branch from `Gajendra/writeup_v1.2` to `Gajendra/writeup_v1.3`.
 
 By following these steps, you can contribute to the `2024-Playground` repository and collaborate effectively with other contributors. Happy learning!
