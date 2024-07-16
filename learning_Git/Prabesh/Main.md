@@ -56,7 +56,7 @@ The next serving of 100% git awesomes-ness. Hope you're hungry
 ![2.1](./ss/2.1.png)
 
 ```sh
-
+git checkout C4
 ```
 
 ## 2: Relative Refs (^)
@@ -64,7 +64,16 @@ The next serving of 100% git awesomes-ness. Hope you're hungry
 ![2.2](./ss/2.2.png)
 
 ```sh
-
+git checkout C3
+```
+OR,
+```sh
+git checkout C4^
+```
+OR,
+```sh
+git checkout C4
+git checkout HEAD^
 ```
 
 ## 3: Relative Refs #2 (~)
@@ -72,7 +81,9 @@ The next serving of 100% git awesomes-ness. Hope you're hungry
 ![2.3](./ss/2.3.png)
 
 ```sh
-
+git branch -f bugFix bugFix~3
+git branch -f main C6
+git checkout HEAD~1
 ```
 
 ## 4: Reversing Changes in Git
@@ -80,7 +91,16 @@ The next serving of 100% git awesomes-ness. Hope you're hungry
 ![2.4](./ss/2.4.png)
 
 ```sh
-
+git reset C1
+git checkout C2
+git revert HEAD
+git branch -f pushed C2'
+```
+OR,
+```sh
+git reset HEAD^
+git checkout pushed
+git revert HEAD
 ```
 
 # Moving Work Around 
