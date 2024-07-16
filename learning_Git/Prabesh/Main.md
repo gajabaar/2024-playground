@@ -195,22 +195,78 @@ For the truly brave!
 
 ![5.1](./ss/5.1.png)
 
-```sh
+- Pathetic Attempt -1:
 
+![5.1.1](./ss/5.1.1.png)
+
+- Ugh. I give up!
+```sh
+show solution
 ```
+![5.1.2](./ss/5.1.2.png)
+
+- Oh... Ok I will try again.
+
+- Unsatisfactory sucess: Site said I had solved it, but my solution wasn't quite resembling the goal. Just look at the side branch.
+```sh
+git rebase main bugFix
+git rebase side another
+git rebase bugFix another
+git branch -f main another
+```
+![5.1.3](./ss/5.1.3.png)
+
+- Satisfactory sucess:
+```sh
+* git rebase main bugFix
+* git rebase bugFix side
+* git rebase side another
+|\
+| \
+|  * (HEAD -> screenshot_image) git branch -f main another
+|  * git checkout main
+|
+* (origin/main) git rebase another main
+```
+![5.1.4](./ss/5.1.4.png)
 
 ## 2: Multiple parents
 
 ![5.2](./ss/5.2.png)
 
 ```sh
-
+git checkout HEAD^
+git checkout HEAD^2
+git checkout HEAD^
+```
+OR,
+```sh
+git checkout HEAD~^2~
+```
+THEN,
+```sh
+git branch bugWork
+git checkout main
 ```
 
 ## 3: Branch Spaghetti
 
 ![5.3](./ss/5.3.png)
 
+- My solution:
 ```sh
+git rebase C2 three
+git checkout one
+git cherry-pick c4 c3 c2  
+git rebase -i two C5: C5 > C4 > C3 > C2
+git rebase C2'' two
+```
 
+- Their Solution
+```sh
+git checkout one
+git cherry-pick C4 C3 C2
+git checkout two
+git cherry-pick C5 C4 C3 C2
+git branch -f three C2
 ```
