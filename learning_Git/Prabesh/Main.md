@@ -148,8 +148,6 @@ git rebase -i C1
 ![4.2.1](./ss/4.2.1.png)
 ```sh
 git commit --amend
-```
-```sh
 git rebase -i C1
 ```
 ![4.2.2](./ss/4.2.2.png)
