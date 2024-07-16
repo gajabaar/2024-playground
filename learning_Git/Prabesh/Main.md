@@ -133,7 +133,9 @@ A mixed bag of Git techniques, tricks, and tips
 ![4.1](./ss/4.1.png)
 
 ```sh
-
+git reset HEAD^
+git checkout main
+git cherry-pick C4
 ```
 
 ## 2: Juggling Commits
@@ -141,7 +143,18 @@ A mixed bag of Git techniques, tricks, and tips
 ![4.2](./ss/4.2.png)
 
 ```sh
-
+git rebase -i C1
+```
+![4.2.1](./ss/4.2.1.png)
+```sh
+git commit --amend
+```
+```sh
+git rebase -i C1
+```
+![4.2.2](./ss/4.2.2.png)
+```sh
+git branch -f main C3''
 ```
 
 ## 3: Juggling Commits #2
@@ -149,7 +162,10 @@ A mixed bag of Git techniques, tricks, and tips
 ![4.3](./ss/4.3.png)
 
 ```sh
-
+git checkout main
+git cherry-pick C2
+git reset HEAD^
+git cherry-pick C2' C3
 ```
 
 ## 4: Git Tags
@@ -157,7 +173,9 @@ A mixed bag of Git techniques, tricks, and tips
 ![4.4](./ss/4.4.png)
 
 ```sh
-
+git tag v0 C1
+git tag v1 C2
+git checkout v1
 ```
 
 ## 5: Git Describe
@@ -165,7 +183,8 @@ A mixed bag of Git techniques, tricks, and tips
 ![4.5](./ss/4.5.png)
 
 ```sh
-
+git describe C1
+git commit
 ```
 
 # Advanced Topics 
