@@ -16,7 +16,8 @@ git commit
 ![1.2](./ss/1.2.png)
 
 ```sh
-
+git branch bugFix
+git checkout bugFix
 ```
 
 ## 3: Merging in Git
@@ -24,7 +25,12 @@ git commit
 ![1.3](./ss/1.3.png)
 
 ```sh
-
+git branch bugFix
+git checkout bugFix
+git commit
+git checkout main
+git commit
+git merge bugFix
 ```
 
 ## 4: Rebase Introduction
@@ -32,7 +38,13 @@ git commit
 ![1.4](./ss/1.4.png)
 
 ```sh
-
+git branch bugFix
+git checkout bugFix
+git commit
+git checkout main
+git commit
+git checkout bugFix
+git rebase main
 ```
 
 # Ramping Up 
