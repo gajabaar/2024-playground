@@ -112,7 +112,7 @@ git revert HEAD
 ![3.1](./ss/3.1.png)
 
 ```sh
-
+git cherry-pick C3 C4 C7
 ```
 
 ## 2: Interactive Rebase Intro
@@ -120,8 +120,9 @@ git revert HEAD
 ![3.2](./ss/3.2.png)
 
 ```sh
-
+git rebase -i C1
 ```
+![3.2.1](./ss/3.2.1.png)
 
 # A Mixed Bag 
 
