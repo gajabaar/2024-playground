@@ -7,8 +7,7 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.1](./ss/101.1.png)
 
 ```sh
-
-
+git clone
 ```
 
 ## 2: Remote Branches
@@ -16,8 +15,9 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.2](./ss/101.2.png)
 
 ```sh
-
-
+git commit
+git checkout o/main
+git commit
 ```
 
 ## 3: Git Fetchin'
@@ -25,16 +25,15 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.3](./ss/101.3.png)
 
 ```sh
-
-
+git fetch
 ```
+
 ## 4: Git Pullin'
 
 ![101.4](./ss/101.4.png)
 
 ```sh
-
-
+git pull
 ```
 
 ## 5: Faking Teamwork
@@ -42,8 +41,11 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.5](./ss/101.5.png)
 
 ```sh
-
-
+git clone
+git fakeTeamwork main 2
+git fetch
+git commit
+git merge o/main
 ```
 
 ## 6: Git Pushin'
@@ -51,8 +53,9 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.6](./ss/101.6.png)
 
 ```sh
-
-
+git commit
+git commit
+git push
 ```
 
 ## 7: Diverged History
@@ -60,8 +63,11 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.7](./ss/101.7.png)
 
 ```sh
-
-
+git clone
+git fakeTeamwork
+git commit
+git pull --rebase
+git push
 ```
 
 ## 8: Locked Main
@@ -69,8 +75,10 @@ Time to share your 1's and 0's kids; coding just got social
 ![101.8](./ss/101.8.png)
 
 ```sh
-
-
+git branch feature
+git reset HEAD^
+git checkout feature
+git push
 ```
 
 # To Origin And Beyond -- Advanced Git Remotes! 
