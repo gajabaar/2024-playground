@@ -90,8 +90,12 @@ And you thought being a benevolent dictator would be fun...
 ![102.1](./ss/102.1.png)
 
 ```sh
-
-
+git fetch 
+git rebase o/main side1
+git rebase side1 side2
+git rebase side2 side3
+git rebase side3 main
+git push
 ```
 
 ## 2: Merging with remotes
@@ -99,8 +103,22 @@ And you thought being a benevolent dictator would be fun...
 ![102.2](./ss/102.2.png)
 
 ```sh
-
-
+git fetch
+git checkout side1
+git merge o/main
+git merge side2
+git merge side3
+git rebase side1 main
+git push
+```
+OR,
+```sh
+git checkout main
+git pull
+git merge side1
+git merge side2
+git merge side3
+git push
 ```
 
 ## 3: Remote Tracking
@@ -108,8 +126,10 @@ And you thought being a benevolent dictator would be fun...
 ![102.3](./ss/102.3.png)
 
 ```sh
-
-
+git checkout -b side o/main
+git commit
+git pull --rebase
+git push
 ```
 
 ## 4: Git push arguments
@@ -117,8 +137,8 @@ And you thought being a benevolent dictator would be fun...
 ![102.4](./ss/102.4.png)
 
 ```sh
-
-
+git push origin main
+git push origin foo
 ```
 
 ## 5: Git push arguments -- Expanded!
@@ -126,8 +146,15 @@ And you thought being a benevolent dictator would be fun...
 ![102.5](./ss/102.5.png)
 
 ```sh
-
-
+git checkout foo
+git push origin foo:main
+git push origin main^:foo
+git checkout main
+```
+OR,
+```sh
+git push origin main^:foo
+git push origin foo:main
 ```
 
 ## 6: Fetch arguments
@@ -135,8 +162,10 @@ And you thought being a benevolent dictator would be fun...
 ![102.6](./ss/102.6.png)
 
 ```sh
-
-
+git fetch origin C6:main
+git fetch origin C3:foo
+git checkout foo
+git merge main
 ```
 
 ## 7: Source of nothing
@@ -144,15 +173,23 @@ And you thought being a benevolent dictator would be fun...
 ![102.7](./ss/102.7.png)
 
 ```sh
-
-
+git push origin :foo
+git fetch origin :bar
 ```
 
 ## 8: Pull arguments
 
 ![102.8](./ss/102.8.png)
 
+- My solution:
 ```sh
+git fetch origin C2:side
+git pull origin C3:foo
+git merge side
+```
 
-
+- Their Solution:
+```sh
+git pull origin c3:foo
+git pull origin c2:side
 ```
