@@ -1,0 +1,107 @@
+# 1. Introduction to git commits.
+
+Task: The task is to make two commits. 
+
+Solution: git commit 
+
+	    git commit
+
+Examination: The git commit command takes a snapshot of all staged changes to the repository. 
+
+# 2. Branching in git.
+
+Task: The task is to make a new branch named bugFix and switch to that branch.
+
+Solution: git checkout -b bugfix 
+
+Examination: The command git checkout -b bugfix makes a new branch named bugFix and switches to that branch at the same time. 
+
+# 3. Merging in git.
+
+Task: The task is to make a new branch named bugFix and merge the branch bugFix into main. 
+
+Solution: git checkout – b bugFix 
+
+	   git commit 
+
+	   git checkout main 
+
+	   git commit 
+
+	   git merge bugFix
+
+Examination: The solution creates a branch bugFix and commits any changes in the branch. Then it switches to main branch and commits any changes made in main. The git merge bugFix merges the bugFix branch to main branch. 
+
+# 4. Rebase Introduction.
+
+Task: The task is to create a branch named bugFix, commit once, go back to main, commit once, checkout to bugFix and rebase to main. 
+
+Solution: git checkout – b bugFix
+
+	git commit 
+
+	git checkout main 
+
+	git commit 
+
+	git checkout bugFix
+
+	git rebase main
+
+Examination: The solution creates a new branch bugFix, commits changes in both the bugFix branch and the main branch and then rebases the bug fix branch onto the main branch making it as if the changes in bugFix were made on top of the current state of main.
+
+# 5. Detach head
+
+Task: The task is to attach the head to commit. 
+
+Solution: git checkout c4 
+
+Examination: The command git checkout c4 attaches the head to the c4 commit. 
+
+# 6. Relative Refs ^
+
+Task: The task is to find the parent commit of bugFix using relative refs.
+
+Solution: git checkout bugFix^
+
+Examination: The command checks and shows the parent commit of bugFix. 
+
+# 7. Relative Refs ~
+
+Task: The task is to move head, main and bugFix to their goal destination. 
+
+Solution: git branch -f main C6 
+
+	Git checkout HEAD ~1
+
+	Git branch -f bugFix HEAD~1
+
+Examination: The command ‘git branch -f main C6’ forcefully updates the main branch to commit C6. The command ‘Git checkout HEAD ~1’ will check out the commit that is one step before the current commit. The command ‘Git branch -f bugFix HEAD~1’ is used to forcefully update the bugFix branch to point to the commit that is one step before the current commit. 
+
+# 8. Reversing changes in git 
+
+Task: The task is to reset local and revert pushed. 
+
+Solution: git reset HEAD~1
+
+	Git checkout pushed 
+
+	Git revert HEAD 
+
+Examination: The command ‘git reset HEAD~1’ is used to move local back to the commit that is one step before the local commit. The command ‘git checkout pushed git revert HEAD’ is to change the working directory to the pushed branch and then create a new commit that undoes the changes introduced by the most recent commit.
+
+# 9. Cherry pick intro 
+
+Task: The task is to cherry-[ick three commits. 
+
+Solution: git cherry-pick C3 C4 C7
+
+Examination: The command ‘git cherry-pick C3 C4 C7’ allows one to selectively apply the changes from the commits to the current branch. 
+
+# 10. rebase -I 
+
+Task: The task is to rebase in the order shown.
+
+Solution: git rebase -i overHere 
+
+Examination: The command ‘git rebase -i overHere’ allows you to interactively reapply the commits from your current branch onto the overHere branch, giving you control over the handling of each commit.
