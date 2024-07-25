@@ -156,3 +156,69 @@ git cherry-pick c4
 
 Juggling Commits
 
+
+Solution 
+we need to change a commit way back in our commit history
+
+command - git commit --amend which is used for slight modification
+after reordering the commit by using git rebase -i
+
+
+
+git rebase -i C1 
+git checkout newImage 
+git commit --amend 
+git checkout caption
+git rebase -i C1 
+git branch -f main C3 
+git checkout main
+
+
+--------------------------------------------------------------------------------
+
+Juggling Commits #2
+
+
+Solution:
+
+git checkout main
+git cherry-pick c2
+git cherry-pick c3
+
+
+--------------------------------------------------------------------------------
+
+Level Git Tags
+
+creates milestone
+Branches are useful but they are mutable and often changing. Tags are a way to (almost) permanently mark certain commits as milestones
+
+You can't "check out" a tag and then complete work on that tag -- tags exist as anchors in the commit tree that designate certain spots.
+
+git tag v0 c1
+git tag v1 c2
+git checkout v1
+
+
+-----------------------------------------------------------------------------------
+
+Git Describe
+
+git describe will tell you where you are relative to the closest anchor.
+
+git describe <ref>
+
+Solution :
+
+git describe
+git describe HEAD
+git describe main
+git describe c5
+git describe c3
+git describe side
+git commit
+
+-----------------------------------------------------------------------------------
+
+Level rebasing over 9000 times
+
