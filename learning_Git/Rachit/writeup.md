@@ -35,3 +35,17 @@ git rebase main
 
 Examination: This command creates a new branch bugFix, commits changes in both the bugFix branch and the main branch and then rebases the bug fix branch onto the main branch making it as if the changes in bugFix were made on top of the current state of main.
 
+5. Detach head
+Task: The task is to attach the head to commit. 
+
+Solution: 
+git checkout c4
+ 
+Examination: The command checkout c4 and attaches the head to the c4 commit. 
+
+6. Relative Refs 
+Task: The task is to find the parent commit of bugFix using relative refs.
+Solution:
+git checkout bugFix
+
+Examination: The command checks and shows the parent commit of bugFix.
