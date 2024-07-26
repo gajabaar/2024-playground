@@ -222,3 +222,157 @@ git commit
 
 Level rebasing over 9000 times
 
+Solution :
+
+
+git rebase c6
+git checkout c3
+git rebase c2'
+git checkout c7
+git rebase c3'
+git checkout c7'
+git rebase -i c0
+git branch -f main c7''
+
+
+-----------------------------------------------------------------------------------
+
+
+Level Multiple Parents
+
+The ^ operator specifies which parent reference to follow from a merge commit.
+
+Solution
+
+git branch bugWork C2
+
+
+-----------------------------------------------------------------------------------
+
+
+Level Branch Sphagetti
+
+Solution:
+
+git checkout one
+git cherry-pick c4 c3 c2
+git branch -f three c2
+git checkout two
+git cherry-pick c5 c4' c3' c2'
+
+![alt text](image.png)
+
+--------------------------------------------------------------------------------------
+
+
+Remote
+
+Clone helps to create copy of a remote repo
+
+Level Clone Intro
+
+Solution:
+
+git clone
+
+
+-----------------------------------------------------------------------------------
+
+Level Remote Branches
+
+origin/main is the remote branch in our local repo
+
+
+Solution:
+
+git commit
+git checkout o/main
+(now after we commit, it goes into head detached state)
+git commit
+
+-----------------------------------------------------------------------------------
+
+Git Fetchin'
+
+How to fetch data from a remote repo
+after fetching o/main will have updates in origin (i.e from remote repo)
+git fetch performs two main steps, and two main steps only. It:
+
+    -downloads the commits that the remote has but are missing from our   local repository, and...
+    -updates where our remote branches point (for instance, o/main)
+
+git fetch essentially brings our local representation of the remote repository into synchronization with what the actual remote repository looks like 
+
+
+Note - git fetch, however, does not change anything about your local state. It will not update your main branch or change anything about how your file system looks right now
+
+
+Solution: git fetch
+
+-----------------------------------------------------------------------------------
+
+Level Git Pullin'
+
+git pull does both fetching and merging 
+
+git pull is essentially shorthand for a git fetch followed by a merge of whatever branch was just fetched.
+
+Solution -
+
+Git pull
+
+
+-----------------------------------------------------------------------------------
+
+
+Level Faking Team Work
+
+
+To understand how to get the changes made my our friend in the remote repo to our local one i.e origin/main
+
+
+git clone
+git faketeamwork 2
+git commit
+git pull
+
+
+
+-----------------------------------------------------------------------------------
+
+
+Level Git Pushin'
+
+As we have made changes in our remote branch i.e locally but we have to send our changes in the remote repo too
+in that case git push is used
+It is opposite of git pull
+
+git push is responsible for uploading your changes to a specified remote and updating that remote to incorporate your new commits. Once git push completes, all your friends can then download your work from the remote
+
+git push can be taken as publishig our work 
+
+
+Solution:
+
+git commit
+git commit
+git push
+
+-----------------------------------------------------------------------------------
+
+Level Diverged History
+
+If our friend has done many changes, after we have fetched
+
+so to push we have to rebase our work on top of it
+
+to we use
+git fetch
+git rebase o/main
+git push
+
+git pull --rebase
+git push
+
+
+![Level Completed till now](image-1.png)
