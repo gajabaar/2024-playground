@@ -105,3 +105,119 @@ Task: The task is to rebase in the order shown.
 Solution: git rebase -i overHere 
 
 Examination: The command ‘git rebase -i overHere’ allows you to interactively reapply the commits from your current branch onto the overHere branch, giving you control over the handling of each commit.
+
+# 11. Grabbing just 1 commit 
+
+Task: The task is to copy only one of the commits over.
+
+Solution: git checkout main
+
+	Git cherry-pick C4 
+
+	Or
+
+	Git rebase -i main
+
+	Git rebase bugFix main 
+
+Examination: The command git cherry pick or git rebase can both be used to copy the single commit over. The command git cherry pick applies the changes  from the c4 
+
+commit to the main branch. 
+
+# 12. Juggling Commits.
+
+Task: The task is to make slight changes in the earlier commit and re-order the commit back to how they previously were. 
+
+Solution: git rebase -i HEAD~2
+
+	Git commit –amend
+
+	Git rebase -i HEAD~2 
+
+	Git rebase caption main 
+
+Examination: We use the command ‘git rebase-I HEAD~2’ command to rebase and reorder the C2 and C3 commit. Then we amend the commit to make the changes in C2. Then we 
+
+perform git rebase again to reorder the commit. Then we rebase main to the updated part of the tree. 
+
+# 13. Juggling Commits #2
+
+Task: The task is to use git cherry pick to reorder commits. 
+
+Solution: git checkout c1
+
+	Git cherry-pick c2
+
+	Git checkout main
+
+	Git cherry-pick c2 c3 
+
+Examination: The solution picks the referenced commit and append it to the current working head. 
+
+# 14. Git tags 
+
+Task: The task is to create tags in the goal visualizations and check v1 out.
+
+Solution: git checkout c2
+
+	Git tag v0 c1
+
+	Git tag v1 c2
+
+Examination: The command git tag creates a milestone for the specified commit. 
+
+# 15. Git describe 
+
+Task: The task is to describe a few of the locations using git describe. 
+
+Solution: git describe bugFix 
+
+	Git describe main 
+
+	Git describe side 
+
+	Git commit 
+
+Examination: The command git describe finds the most recent tag that is reachable from the referenced commit. 
+
+# 16. Rebasing multiple branches 
+
+Task: The task is to rebase multiple branches in a sequential order. 
+
+Solution: git rebase main bugFix
+
+	Git rebase bugFix side
+
+	Git rebase side another 
+
+	Git rebase another main 
+
+Examination: The commands rebases the commits in the specified order. It Integrates changes from main into bugFix, then integrate bugFix into side, then integrate side 
+
+into another, and finally integrate another back into main.
+
+# 17. Specifying parents 
+
+Task: The task is to specify commit using modifier. 
+
+Solution: git branch bugWork main ^^2^
+
+Examination: The command git branch bugWork main ^^2^ creates a new branch named bugWork from the commit that is two parents before the second parent of the main 
+branch's current commit.
+
+# 18. Branch Spaghetti 
+
+Task: The task is to update the three branches with modified version of last few commits on main. 
+
+Solution: git checkout one 
+
+	Git cherry pick c4 c3 c2 
+
+	Git checkout two 
+
+	Git cherry pick c5 c4 c3 c2 
+
+	Git rebase c2 three
+
+Examination: The command updates the branches as specified. 
+
